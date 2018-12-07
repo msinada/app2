@@ -10,15 +10,32 @@
  <div id="banner">
  <%= image_tag("logo.png") %>
  <%= @page_title || "Our Products" %>
+ <%= button_to 'Admin', products_path, method: :get  %>
  </div>
  <div id="columns">
  <div id="side">
- <ul>
+ 	<%if controller_name == "orders" || controller_name=="shopper"%>
+ 	<div id='cart'>
+		<%=render @cart %> 
+
+	</div>
+	<%end%>
+ <!--<ul>
  <li><a href="http://www....">Home</a></li>
  <li><a href="http://www..../faq">Questions</a></li>
  <li><a href="http://www..../news">News</a></li>
  <li><a href="http://www..../contact">Contact</a></li>
- </ul>
+ </ul>-->
+
+ <% if session[:user_id] %>
+    <ul>
+          <li><%= link_to 'Orders',   orders_path   %></li>
+          <li><%= link_to 'Products', products_path %></li>
+          <li><%= link_to 'Users',    users_path    %></li>
+        </ul>
+    <%= button_to 'Logout', logout_path, method: :delete   %>
+<% end %>
+
  </div>
  <div id="main">
  <%= yield %>
