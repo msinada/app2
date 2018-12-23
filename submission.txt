@@ -1,0 +1,6 @@
+Muna Sinada
+00001024989
+
+Website deployed at :  https://shopping-app-coen278.herokuapp.com/
+
+- was unable to implement authentication 
